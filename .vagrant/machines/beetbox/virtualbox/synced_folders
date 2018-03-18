@@ -1,0 +1,1 @@
+{"nfs":{"beetbox":{"type":"nfs","id":"beetbox","guestpath":"/var/beetbox","hostpath":"/Users/ivan/Salsa/d8training","disabled":false,"__vagrantfile":true,"map_uid":501,"map_gid":20,"nfs_udp":true,"nfs_version":3,"uuid":"2296809454"}}}

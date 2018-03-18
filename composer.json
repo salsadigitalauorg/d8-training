@@ -1,0 +1,108 @@
+{
+  "name": "drupal-composer/drupal-project",
+  "description": "Project template for Drupal 8 projects with composer",
+  "type": "project",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "",
+      "role": ""
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "composer/installers": "^1.2",
+    "cweagans/composer-patches": "^1.6",
+    "drupal-composer/drupal-scaffold": "^2.2",
+    "drupal/console": "^1.0.2",
+    "drupal/core": "~8.5",
+    "drush/drush": "^9.0.0",
+    "vlucas/phpdotenv": "^2.4",
+    "webflo/drupal-finder": "^1.0.0",
+    "webmozart/path-util": "^2.3"
+  },
+  "require-dev": {
+    "beet/box": "^0.8.12",
+    "webflo/drupal-core-require-dev": "~8.5"
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "classmap": [
+      "scripts/composer/ScriptHandler.php"
+    ],
+    "files": [
+      "load.environment.php"
+    ]
+  },
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "pre-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "pre-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "post-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+    ],
+    "post-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/libraries/{$name}": [
+        "type:drupal-library"
+      ],
+      "web/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ]
+    },
+    "beetbox": {
+      "beet_domain": "local.d8training",
+      "beet_root": "{{ beet_base }}/web",
+      "php_version": "7.1",
+      "php_mysql_package": "php7.1-mysql",
+      "php_packages_state": "latest",
+      "php_install_recommends": "yes",
+      "php_date_timezone": "Australia/Melbourne",
+      "java_packages": [
+        "openjdk-8-jdk"
+      ],
+      "installed_extras_solr": false,
+      "solr_version": "4.10.4",
+      "solr_install_path": "/opt/solr",
+      "solr_host": "0.0.0.0",
+      "solr_timezone": "Australia/Melbourne",
+      "solr_log_file_path": "/var/log/solr.log",
+      "solr_service_name": "solr",
+      "solr_service_state": "started",
+      "vagrant_memory": "2048",
+      "vagrant_cpus": 2
+    }
+  }
+}
