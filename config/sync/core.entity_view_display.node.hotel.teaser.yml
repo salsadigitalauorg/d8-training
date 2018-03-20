@@ -1,0 +1,29 @@
+uuid: 1be2e801-70ed-4b82-852c-5d0ada7b023e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hotel.body
+    - node.type.hotel
+  module:
+    - text
+    - user
+id: node.hotel.teaser
+targetEntityType: node
+bundle: hotel
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

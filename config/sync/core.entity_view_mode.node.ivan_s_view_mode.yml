@@ -1,0 +1,10 @@
+uuid: 398acd1f-de0a-4c56-8150-84e37a712469
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.ivan_s_view_mode
+label: 'Ivan''s View mode'
+targetEntityType: node
+cache: true

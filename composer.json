@@ -66,6 +66,10 @@
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+    ],
+    "cs": [
+      "phpcs --colors",
+      "npm run lint"
     ]
   },
   "extra": {

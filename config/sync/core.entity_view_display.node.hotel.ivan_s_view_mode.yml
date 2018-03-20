@@ -1,0 +1,51 @@
+uuid: 603a1ef0-eb0b-43a8-b2f0-a5bcb6caa43f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.ivan_s_view_mode
+    - field.field.node.hotel.body
+    - field.field.node.hotel.field_image_intro
+    - field.field.node.hotel.field_landmark
+    - field.field.node.hotel.field_short_summary
+    - image.style.large
+    - node.type.hotel
+  module:
+    - image
+    - text
+    - user
+id: node.hotel.ivan_s_view_mode
+targetEntityType: node
+bundle: hotel
+mode: ivan_s_view_mode
+content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image_intro:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_short_summary:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_landmark: true
+  langcode: true
