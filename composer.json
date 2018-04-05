@@ -28,6 +28,7 @@
     "drupal/console": "^1.0.2",
     "drupal/core": "~8.5",
     "drupal/devel": "^1.2",
+    "drupal/stage_file_proxy": "^1.0@alpha",
     "drush/drush": "^9.0.0",
     "vlucas/phpdotenv": "^2.4",
     "webflo/drupal-finder": "^1.0.0",
@@ -70,6 +71,18 @@
     "cs": [
       "phpcs --colors",
       "npm run lint"
+    ],
+    "build": [
+      "drush version",
+      "drush sql-drop",
+      "gunzip -c data/db.sql.gz | drush sql-cli",
+      "drush cr",
+      "drush ev '\\Drupal::entityManager()->getStorage(\"shortcut_set\")->load(\"default\")->delete();'",
+      "drush cim -y --partial",
+      "drush cr",
+      "drush updb -y",
+      "drush entup -y",
+      "drush en devel,config_filter,config_split,stage_file_proxy,config_suite -y"
     ]
   },
   "extra": {

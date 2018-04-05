@@ -28,4 +28,5 @@ content:
     weight: 101
     region: content
 hidden:
+  field_image: true
   langcode: true

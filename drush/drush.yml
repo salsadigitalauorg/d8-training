@@ -4,3 +4,30 @@
 # Docs at https://github.com/drush-ops/drush/blob/master/examples/example.drush.yml
 #
 # Edit or remove this file as needed.
+local:
+  options:
+    command-specific:
+      sql-sync:
+        no-ordered-dump: true
+        sanitize: true
+        structure-tables:
+          common:
+            - cache
+            - cache_filter
+            - cache_menu
+            - cache_page
+            - history
+            - sessions
+            - watchdog
+    source-command-specific:
+      sql-sync:
+        no-cache: true
+        structure-tables-key: common
+  paths:
+    drush: /usr/bin
+    dump-dir: /app/data
+    site: sites/default/
+  root: /app/web
+  uri: d8.lndo.site
+conf:
+  php: php/php.ini

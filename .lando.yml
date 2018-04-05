@@ -17,4 +17,16 @@ events:
     - appserver: drush cr --root=/app/docroot
     - appserver: drush entup -y --root=/app/docroot
     - appserver: drush en config_suite -y --root=/app/docroot
-    - appserver: /app/node_modules/.bin/grunt
+tooling:
+  npm:
+    service: appserver
+    needs:
+      - database
+  grunt:
+    service: appserver
+    cmd: /app/node_modules/.bin/grunt
+  build:
+    service: appserver
+    cmd:
+      - composer
+      - build
