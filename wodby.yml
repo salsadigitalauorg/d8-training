@@ -3,8 +3,8 @@ pipeline:
     type: command
     command: composer install --no-dev
     directory: $APP_ROOT
-  - name: Drupal 8 clear cache on dev
+  - name: Import configuration
     type: command
-    command: drush cr
-    directory: $HTTP_ROOT
+    command: composer build
+    directory: $APP_ROOT
     only_if: test "$WODBY_ENVIRONMENT_TYPE" = "dev"
