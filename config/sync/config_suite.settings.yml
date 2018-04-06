@@ -4,4 +4,4 @@ config_suite:
 _core:
   default_config_hash: UqP-UdwMDBQBbxLYDJDUtXcTalwW83Pf3hSFXgNLFIc
 automatic_import: false
-automatic_export: true
+automatic_export: false

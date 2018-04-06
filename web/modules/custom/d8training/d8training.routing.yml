@@ -1,0 +1,7 @@
+d8training.content:
+  path: '/d8training'
+  defaults:
+    _controller: '\Drupal\d8training\Controller\FirstController::content'
+    _title: 'My first page and a menu item'
+  requirements:
+    _permission: 'access content'

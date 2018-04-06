@@ -1,23 +1,25 @@
-name: d8
+name: d8training
 recipe: drupal8
 config:
   webroot: web
-  via: nginx
   php: 7.1
-  drush: global:9.2.2
   xdebug: true
 events:
   post-db-import:
-    - appserver: drush version --root=/app/docroot
-    - appserver: drush cr --root=/app/docroot
-    - appserver: drush en devel,config_filter,config_split,stage_file_proxy -y --root=/app/docroot
-    - appserver: drush cim -y --root=/app/docroot
-    - appserver: drush cr --root=/app/docroot
-    - appserver: drush updb -y --root=/app/docroot
-    - appserver: drush cr --root=/app/docroot
-    - appserver: drush entup -y --root=/app/docroot
-    - appserver: drush en config_suite -y --root=/app/docroot
+    - appserver: drush version --root=/app/web
+    - appserver: drush cr --root=/app/web
+    - appserver: drush en devel,config_filter,config_split,stage_file_proxy -y --root=/app/web
+    - appserver: drush cim -y --root=/app/web
+    - appserver: drush cr --root=/app/web
+    - appserver: drush updb -y --root=/app/web
+    - appserver: drush cr --root=/app/web
+    - appserver: drush entup -y --root=/app/web
+    - appserver: drush en config_suite -y --root=/app/web
 tooling:
+  drush:
+    cmd:
+      - "drush"
+      - "--root=/app/web"
   npm:
     service: appserver
     needs:
