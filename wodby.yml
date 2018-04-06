@@ -2,7 +2,7 @@ pipeline:
   - name: Run composer install
     type: command
     command: composer install --no-dev
-    directory: $HTTP_ROOT
+    directory: $APP_ROOT
   - name: Drupal 8 clear cache on dev
     type: command
     command: drush cr
