@@ -89,6 +89,16 @@
       "drush updb -y",
       "drush entup -y",
       "drush en devel,config_filter,config_split,stage_file_proxy,config_suite -y"
+    ],
+    "build-wotby": [
+      "drush version",
+      "drush cr",
+      "drush ev '\\Drupal::entityManager()->getStorage(\"shortcut_set\")->load(\"default\")->delete();'",
+      "drush cim -y --partial",
+      "drush cr",
+      "drush updb -y",
+      "drush entup -y",
+      "drush en devel,config_filter,config_split,stage_file_proxy,config_suite -y"
     ]
   },
   "extra": {
