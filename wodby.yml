@@ -1,0 +1,10 @@
+pipeline:
+  - name: Run composer install
+    type: command
+    command: composer install --no-dev
+    directory: $HTTP_ROOT
+  - name: Drupal 8 clear cache on dev
+    type: command
+    command: drush cr
+    directory: $HTTP_ROOT
+    only_if: test "$WODBY_ENVIRONMENT_TYPE" = "dev"
