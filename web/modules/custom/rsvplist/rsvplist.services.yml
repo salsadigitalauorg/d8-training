@@ -1,4 +1,4 @@
 services:
-  rsvplist.service:
-    class: \Drupal\rsvplist\RSVPListService
-    arguments: ['@messenger']
+  rsvplist.enabler:
+    class: Drupal\rsvplist\EnablerService
+    arguments: []

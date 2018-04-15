@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Contains installation instructions for rsvp.module.
+ */
+
+function rsvplist_schema() {
+  $schema['rsvplist'] = [
+    'description' => 'Stores email, timestamp, nid and uid for RSVP submissions.',
+    'fields' => [
+      'id' => [
+        'description' => 'The primary identifier for the record.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'The {user}.uid that triggers RSVP.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'nid' => [
+        'description' => 'The {node}.nid for this RSVP.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => 0,
+      ],
+      'mail' => [
+        'description' => "User's email address.",
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+        'default' => '',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp of the RSVP submission.'
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'node' => ['nid'],
+      'node_user' => ['nid', 'uid'],
+    ],
+  ];
+
+  $schema['rsvplist_enabled'] = [
+    'description' => 'Tracks whether rsvplist enabled for a node.',
+    'fields' => [
+      'nid' => [
+        'description' => 'The {node}.nid that has rspvlist enabled',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['nid'],
+  ];
+
+  return $schema;
+}
