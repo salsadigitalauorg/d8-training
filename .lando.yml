@@ -3,12 +3,15 @@ recipe: drupal8
 config:
   webroot: web
   php: 7.1
+  via: nginx
+  drush: global:9.2.2
   xdebug: true
 events:
   post-db-import:
     - appserver: drush version --root=/app/web
     - appserver: drush cr --root=/app/web
     - appserver: drush en devel,config_filter,config_split,stage_file_proxy -y --root=/app/web
+    - appserver: drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
     - appserver: drush cim -y --root=/app/web
     - appserver: drush cr --root=/app/web
     - appserver: drush updb -y --root=/app/web

@@ -1,7 +1,5 @@
 <?php
 
-// @codingStandardsIgnoreFile
-
 /**
  * @file
  * Local development override configuration feature.
@@ -36,6 +34,25 @@ assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
 
 /**
+ * Local DB settings.
+ */
+$databases = [
+  'default' =>
+    [
+      'default' =>
+        [
+          'database' => getenv('DB_NAME') ? getenv('DB_NAME') : 'beetbox',
+          'username' => getenv('DB_USER') ? getenv('DB_USER') : 'beetbox',
+          'password' => getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'beetbox',
+          'host' => getenv('DB_HOST') ? getenv('DB_HOST') : '127.0.0.1',
+          'port' => getenv('DB_PORT') ? getenv('DB_PORT') : '3306',
+          'driver' => 'mysql',
+          'prefix' => '',
+        ],
+    ],
+];
+
+/**
  * Enable local development services.
  */
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
@@ -52,10 +69,10 @@ $config['system.logging']['error_level'] = 'verbose';
  * Disable CSS and JS aggregation.
  */
 $config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess']  = FALSE;
 
 /**
- * Disable the render cache.
+ * Disable the render cache (this includes the page cache).
  *
  * Note: you should test with the render cache enabled, to ensure the correct
  * cacheability metadata is present. However, in the early stages of
@@ -64,7 +81,7 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * This setting disables the render cache by using the Null cache back-end
  * defined by the development.services.yml file above.
  *
- * Only use this setting once the site has been installed.
+ * Do not use this setting until after the site is installed.
  */
 # $settings['cache']['bins']['render'] = 'cache.backend.null';
 
@@ -75,20 +92,6 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * database. This makes it easier to develop custom migrations.
  */
 # $settings['cache']['bins']['discovery_migration'] = 'cache.backend.memory';
-
-/**
- * Disable Internal Page Cache.
- *
- * Note: you should test with Internal Page Cache enabled, to ensure the correct
- * cacheability metadata is present. However, in the early stages of
- * development, you may want to disable it.
- *
- * This setting disables the page cache by using the Null cache back-end
- * defined by the development.services.yml file above.
- *
- * Only use this setting once the site has been installed.
- */
-# $settings['cache']['bins']['page'] = 'cache.backend.null';
 
 /**
  * Disable Dynamic Page Cache.
@@ -116,7 +119,11 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  * be gained by generating a query string from rebuild_token_calculator.sh and
  * using these parameters in a request to rebuild.php.
  */
-$settings['rebuild_access'] = TRUE;
+$settings['rebuild_access'] = FALSE;
+
+if (file_exists($app_root . '/../salt.txt')) {
+  $settings['hash_salt'] = file_get_contents($app_root . '/../salt.txt');
+}
 
 /**
  * Skip file system permissions hardening.
@@ -129,3 +136,12 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+// Disable config_suite export.
+$config['config_suite.settings']['config_suite']['automatic_export'] = TRUE;
+$config['config_suite.settings']['config_suite']['automatic_import'] = FALSE;
+$config['config_suite.settings']['automatic_export'] = TRUE;
+$config['config_suite.settings']['automatic_import'] = FALSE;
+
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';

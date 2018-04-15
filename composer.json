@@ -61,7 +61,6 @@
     ]
   },
   "scripts": {
-    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "pre-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
     ],
@@ -69,7 +68,8 @@
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
     ],
     "post-install-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "cp -pf web/sites/example.settings.local.php web/sites/default/settings.local.php"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
@@ -102,6 +102,36 @@
     ]
   },
   "extra": {
+    "drupal-scaffold": {
+      "source": "http://cgit.drupalcode.org/drupal/plain/{path}?h={version}",
+      "excludes": [
+        "web/sites/development.services.yml",
+        "web/sites/default/development.services.yml",
+        "web/sites/default/default.settings.local.php",
+        "web/sites/default/settings.local.php",
+        "web/sites/default/prod.settings.php",
+        "web/sites/default/uat.settings.php",
+        "web/sites/default/patch.settings.php",
+        ".beetbox/tasks/post/solr.yml",
+        ".eslintrc.json",
+        "web/google123.html",
+        "web/robots.txt"
+      ],
+      "includes": [
+        ".editorconfig",
+        ".eslintignore",
+        ".gitattributes",
+        ".htaccess",
+        "index.php",
+        "robots.txt",
+        "update.php"
+      ],
+      "omit-defaults": true,
+      "initial": {
+        "sites/default/default.services.yml": "sites/default/services.yml",
+        "sites/default/default.settings.php": "sites/default/settings.php"
+      }
+    },
     "installer-paths": {
       "web/core": [
         "type:drupal-core"
