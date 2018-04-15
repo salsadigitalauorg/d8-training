@@ -1,8 +1,0 @@
-uuid: 9aa3571a-209f-49fd-b49b-0ba9ff0fd440
-langcode: en
-status: true
-dependencies: {  }
-id: custom_block_type
-label: 'Custom block type'
-revision: 0
-description: ''

@@ -1,7 +1,0 @@
-ignored_config_entities:
-  0: user.settings
-  2: views.settings
-  4: contact.settings
-  6: 'webform.webform.*'
-_core:
-  default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk

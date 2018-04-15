@@ -1,4 +1,4 @@
-uuid: c2f8330d-7d6f-42bc-a757-56e3e711d494
+uuid: f335e224-e076-4a31-8906-f932cfb1e2c4
 langcode: en
 status: true
 dependencies:
@@ -19,7 +19,7 @@ settings:
   label: 'Site branding'
   provider: system
   label_display: '0'
-  use_site_logo: false
+  use_site_logo: true
   use_site_name: true
   use_site_slogan: true
 visibility: {  }

@@ -1,13 +1,11 @@
-uuid: c16264f7-fa7e-4e29-a5c6-5fa4ee0892a6
+uuid: 8bdec38e-b02a-4842-8d57-ab49c68fcb21
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.page.body
-    - field.field.node.page.field_image
     - node.type.page
   module:
-    - image
     - text
     - user
 _core:
@@ -24,17 +22,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_image:
-    weight: 102
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
   links:
     weight: 101
     region: content
-hidden:
-  langcode: true
+hidden: {  }
