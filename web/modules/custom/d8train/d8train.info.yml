@@ -1,0 +1,5 @@
+name: 'd8train'
+type: module
+description: 'My test d8 module'
+core: 8.x
+package: 'D8training'
