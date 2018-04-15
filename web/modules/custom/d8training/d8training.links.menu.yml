@@ -1,6 +1,0 @@
-d8training.mypage:
-  title: 'My page'
-  description: 'Link to the page that my module created'
-  route_name: d8training.content
-  weight: 10
-  menu_name: main

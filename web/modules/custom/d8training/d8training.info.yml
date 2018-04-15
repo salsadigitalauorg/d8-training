@@ -1,8 +1,0 @@
-name: Drupal 8 Training Module
-type: module
-description: A module to facilitate practicing D8 module development
-core: '8.x'
-package: 'D8 Training'
-dependencies:
-  - views
-  - book
