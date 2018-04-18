@@ -7,11 +7,8 @@
 
 namespace Drupal\rsvplist\Form;
 
-use \Drupal\Core\Database\Database;
 use \Drupal\Core\Form\FormBase;
 use \Drupal\Core\Form\FormStateInterface;
-use \Drupal\Core\Messenger\MessengerInterface;
-use \Drupal\user\Entity\User;
 
 /**
  * Provides an RSVP Capture email form.
@@ -30,11 +27,12 @@ class RSVPForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $node = \Drupal::routeMatch()->getParameter('node');
+    // @todo: Extra validation is necessary to avoid mixed return types.
     $nid = !empty($node->nid->value) ? $node->nid->value : NULL;
 
     $form['email'] = [
       '#title' => t('Email address'),
-      '#type' => 'email',
+      '#type' => 'textfield',
       '#size' => 25,
       '#descripton' => t('We\'ll send updates to the email address you provide.'),
       '#required' => TRUE,
@@ -76,7 +74,11 @@ class RSVPForm extends FormBase {
         'created' => time(),
       ])
       ->execute();
-    \Drupal::messenger()->addMessage(t('Thank you for your RSVP, you are on the list for the event.'));
+
+    // @todo: Display Drupal Messenger using the messenger service.
+    \Drupal::messenger()
+      ->addMessage(t('Thank you for your RSVP, you are on the list for the event.'));
   }
+
 
 }

@@ -20,7 +20,6 @@ use \Drupal\Core\Access\AccessResult;
  *   category = @Translation("Blocks")
  * )
  */
-
 class RSVPBlock extends BlockBase {
 
   /**

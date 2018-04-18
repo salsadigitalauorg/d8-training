@@ -1,6 +1,6 @@
-uuid: 390d3208-ef97-4916-81dd-a3fb9f1b6fbb
-name: 'Drush Site-Install'
-mail: admin@example.com
+uuid: 7f2a0449-706d-4e3c-a8ec-b07fe6d75c06
+name: 'London City Guide'
+mail: me@example.com
 slogan: ''
 page:
   403: ''
