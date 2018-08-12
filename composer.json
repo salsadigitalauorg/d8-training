@@ -69,7 +69,8 @@
     ],
     "post-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "cp -pf web/sites/example.settings.local.php web/sites/default/settings.local.php"
+      "cp -pf web/sites/example.settings.local.php web/sites/default/settings.local.php",
+      "cp -pf web/sites/development.services.yml web/sites/default/development.services.yml"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
