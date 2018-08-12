@@ -1,6 +1,6 @@
-uuid: 390d3208-ef97-4916-81dd-a3fb9f1b6fbb
-name: 'Drush Site-Install'
-mail: admin@example.com
+uuid: e27d528b-9660-47c5-b13c-b2043f32a8f6
+name: 'D8 training'
+mail: ivan@salsadigital.com.au
 slogan: ''
 page:
   403: ''

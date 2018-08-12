@@ -1,4 +1,4 @@
-uuid: 44c87670-0cd2-45dd-9c58-59158613b7c6
+uuid: 0e0926b4-3327-4769-8cf8-2ad01842a15d
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - admin@example.com
+  - ivan@salsadigital.com.au
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
