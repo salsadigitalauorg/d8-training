@@ -32,9 +32,9 @@ events:
     - appserver: drush en config_suite -y --root=/app/web
 tooling:
   drush:
-    cmd:
-      - "drush"
-      - "--root=/app/web"
+    cmd: vendor/bin/drush --root=/app/web
+  drupal:
+    cmd: vendor/bin/drupal
   npm:
     service: appserver
     needs:
