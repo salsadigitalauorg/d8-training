@@ -1,5 +1,4 @@
 allowed_types:
-  - article
   - page
 _core:
   default_config_hash: sVMwyppBG2XyFsmT71_wosW7kdkYoalOiWK1t1svpI0

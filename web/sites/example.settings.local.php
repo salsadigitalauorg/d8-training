@@ -41,10 +41,10 @@ $databases = [
     [
       'default' =>
         [
-          'database' => getenv('DB_NAME') ? getenv('DB_NAME') : 'beetbox',
-          'username' => getenv('DB_USER') ? getenv('DB_USER') : 'beetbox',
-          'password' => getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'beetbox',
-          'host' => getenv('DB_HOST') ? getenv('DB_HOST') : '127.0.0.1',
+          'database' => getenv('DB_NAME') ? getenv('DB_NAME') : 'drupal8',
+          'username' => getenv('DB_USER') ? getenv('DB_USER') : 'drupal8',
+          'password' => getenv('DB_PASSWORD') ? getenv('DB_PASSWORD') : 'drupal8',
+          'host' => getenv('DB_HOST') ? getenv('DB_HOST') : 'database',
           'port' => getenv('DB_PORT') ? getenv('DB_PORT') : '3306',
           'driver' => 'mysql',
           'prefix' => '',
@@ -55,7 +55,7 @@ $databases = [
 /**
  * Enable local development services.
  */
-$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+$settings['container_yamls'][] = $app_root . '/' . $site_path . '/development.services.yml';
 
 /**
  * Show all error messages, with backtrace information.
