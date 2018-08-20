@@ -30,6 +30,7 @@
     "drupal/csv_serialization": "^1.4",
     "drupal/devel": "^1.2",
     "drupal/jsonapi": "^1.23",
+    "drupal/memcache_storage": "^1.0@beta",
     "drupal/migrate_plus": "dev-4.x",
     "drupal/migrate_tools": "dev-4.x",
     "drupal/restui": "^1.15",
