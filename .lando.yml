@@ -9,6 +9,7 @@ proxy:
   pma:
     - pma.d8training.lndo.site
   appserver:
+    - d8training.lndo.site
     - elasticsearch.d8training.lndo.site
     - memcached.d8training.lndo.site
 services:
