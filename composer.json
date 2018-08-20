@@ -19,6 +19,7 @@
     "composer/installers": "^1.2",
     "cweagans/composer-patches": "^1.6",
     "drupal-composer/drupal-scaffold": "^2.2",
+    "drupal/admin_toolbar": "^1.24",
     "drupal/admin_toolbar_tools": "^1.23",
     "drupal/bootstrap": "^3.11",
     "drupal/config_filter": "^1.1",
@@ -26,7 +27,12 @@
     "drupal/config_split": "^1.3",
     "drupal/config_suite": "^1.2",
     "drupal/core": "~8.5",
+    "drupal/csv_serialization": "^1.4",
     "drupal/devel": "^1.2",
+    "drupal/jsonapi": "^1.23",
+    "drupal/migrate_plus": "dev-4.x",
+    "drupal/migrate_tools": "dev-4.x",
+    "drupal/restui": "^1.15",
     "drupal/stage_file_proxy": "^1.0@alpha",
     "drush/drush": "^9.0.0",
     "vlucas/phpdotenv": "^2.4",
@@ -161,22 +167,8 @@
       "php_packages_state": "latest",
       "php_install_recommends": "yes",
       "php_date_timezone": "Australia/Melbourne",
-      "java_packages": [
-        "openjdk-8-jdk"
-      ],
-      "installed_extras_solr": false,
-      "solr_version": "4.10.4",
-      "solr_install_path": "/opt/solr",
-      "solr_host": "0.0.0.0",
-      "solr_timezone": "Australia/Melbourne",
-      "solr_log_file_path": "/var/log/solr.log",
-      "solr_service_name": "solr",
-      "solr_service_state": "started",
       "vagrant_memory": "2048",
-      "vagrant_cpus": 2,
-      "drupal_install_site": true,
-      "drupal_account_name": "admin",
-      "drupal_account_pass": "admin"
+      "vagrant_cpus": 2
     }
   }
 }
