@@ -1,0 +1,24 @@
+uuid: 30402643-9568-4d90-9844-cfe508526be7
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.d8_training_test_content_view
+  module:
+    - views
+  theme:
+    - bartik
+id: views_block__d8_training_test_content_view_block_1
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_block:d8_training_test_content_view-block_1'
+settings:
+  id: 'views_block:d8_training_test_content_view-block_1'
+  label: 'Similar content'
+  provider: views
+  label_display: visible
+  views_label: 'Similar content'
+  items_per_page: none
+visibility: {  }

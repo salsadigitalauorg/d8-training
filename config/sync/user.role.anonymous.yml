@@ -12,5 +12,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'restful get d8train_advanced_rest_resource'
   - 'search content'
   - 'use text format restricted_html'

@@ -1,0 +1,19 @@
+uuid: 084d8724-dffc-4771-8ca7-37ba45046e50
+langcode: en
+status: true
+dependencies:
+  module:
+    - d8train_advanced
+    - serialization
+    - user
+id: d8train_advanced_rest_resource
+plugin_id: d8train_advanced_rest_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+    - xml
+  authentication:
+    - cookie
